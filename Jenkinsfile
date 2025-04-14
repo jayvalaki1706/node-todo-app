@@ -2,17 +2,18 @@ pipeline {
     agent any
     stages {
         stage('clone code') {
-            step {
+            steps {
                 checkout scm
             }
         }
         stage('installing npm module') {
-            step {
+            steps {
                 sh 'npm install'
+                sh 'npm --version'
             }
         }
         stage('Running the application') {
-            step {
+            steps {
                 sh 'node app.js'
             }
         }
